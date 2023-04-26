@@ -37,3 +37,26 @@ const dataItems = {
     }
   ]
 };
+
+function loadItems() {
+  // Находим элемент с классом content, куда мы будем вставлять новые товары
+  let elementContent = document.getElementsByClassName('content')[0];
+  // Находим элемент плэйсхолдер с классом item
+  let elementItem = document.getElementsByClassName('item')[0];
+  // Удаляем плейсхолдер из DOM
+  elementItem.remove();
+  // Итерируемся по товарам, которые нам надо отобразить
+  for(let dataItem of dataItems['items']) {
+    // Клонируем плейсхолдер, в результате получаем новый элемент, который еще не отображается в DOM
+    let item = elementItem.cloneNode(true);
+    // Вставляем контент в наш новый элемент
+    item.querySelector('.item_img').src = dataItem['img_src'];
+    item.querySelector('.item_title').textContent = dataItem['title'];
+    item.querySelector('.item_description').textContent = dataItem['description'];
+    item.querySelector('.item_price').textContent = dataItem['price'];
+    // Добавляем item в DOM, чтобы отобразить товар
+    elementContent.appendChild(item);
+  }
+}
+
+loadItems();
