@@ -11,22 +11,10 @@
 <body>
 <main>
     <div class="content">
-
+        <button onclick='localStorage.removeItem("fish_text_data");window.location.reload();'>Обновить текст</button>
     </div>
 </main>
-
-<script type="module">
-    let elContent = document.getElementsByClassName('content')[0];
-    let rand = Math.floor(Math.random() * 20);
-    let resp = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${rand}&start-with-lorem=1`);
-    let data = await resp.json();
-    for(let [index, item] of data.entries()) {
-        let elItem = document.createElement('div');
-        elItem.className = 'item';
-        elItem.innerHTML = `${index}: ${item}`;
-        elContent.appendChild(elItem);
-    }
-</script>
+<script type="module" src="script.js"></script>
 <script>
     // Write your code here
 </script>
