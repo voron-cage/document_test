@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <script type="module" src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,8 +15,8 @@
         <button onclick='localStorage.removeItem("fish_text_data");window.location.reload();'>Обновить текст</button>
     </div>
 </main>
-<script type="module" src="script.js"></script>
-<script>
+<script type="module">
+    await new Promise(r => setTimeout(r, 2000));
     // Write your code here
 </script>
 </body>
